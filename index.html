@@ -3,44 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamTheGame Live Player</title>
+    <title>Live Stream</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-        }
-        video {
-            width: 80%;
-            max-width: 800px;
-            margin-top: 20px;
-            border: 2px solid white;
-            border-radius: 8px;
-        }
-    </style>
 </head>
 <body>
-    <h1>🎥 StreamTheGame Live Player</h1>
-    <video id="video" controls autoplay></video>
+    <h1>Live Stream</h1>
+    <video id="video" controls autoplay width="640" height="360"></video>
 
     <script>
         var video = document.getElementById('video');
-        var videoSrc = "https://dai.google.com/ssai/event/8cov9tHQRj26xm-Qz6uWzQ/master.m3u8";
+        var videoSrc = "https://clicknboyn.xyz/live/n-2/chunks.m3u8";
 
         if (Hls.isSupported()) {
             var hls = new Hls();
             hls.loadSource(videoSrc);
             hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
                 video.play();
             });
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
             video.src = videoSrc;
-            video.play();
-        } else {
-            alert("Your browser does not support HLS playback.");
+            video.addEventListener('loadedmetadata', function () {
+                video.play();
+            });
         }
     </script>
 </body>
