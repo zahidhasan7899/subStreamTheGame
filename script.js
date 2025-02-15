@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("video");
-    var videoSrc = "https://cors-anywhere.herokuapp.com/https://dffgtrda.vffddd.online:8181/bein1/tracks-v1a1/mono.ts.m3u8";
+    var videoSrc = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
 
     if (Hls.isSupported()) {
         var hls = new Hls();
