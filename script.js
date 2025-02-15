@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("video");
-    var videoSrc = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+    var videoSrc = "https://apollo.production-public.tubi.io/live/ac-bein.m3u8?ap.debug=0&ap.pt=0&ap.sid=4cf37a97-5901-401a-9dc8-df57f910cef7";
 
     if (Hls.isSupported()) {
         var hls = new Hls();
