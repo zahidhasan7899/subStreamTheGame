@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("video");
-    var videoSrc = "https://dffgtrda.vffddd.online:8181/bein1/tracks-v1a1/mono.ts.m3u8";
+    var videoSrc = "https://cors-anywhere.herokuapp.com/https://dffgtrda.vffddd.online:8181/bein1/tracks-v1a1/mono.ts.m3u8";
 
     if (Hls.isSupported()) {
         var hls = new Hls();
@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
         hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
         });
-        
-        // Log errors
+
+        // Log errors for debugging
         hls.on(Hls.Events.ERROR, function (event, data) {
             console.error("HLS.js Error:", data);
         });
-        
+
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = videoSrc;
         video.addEventListener("loadedmetadata", function () {
