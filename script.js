@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
         hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
         });
+        
+        // Log errors
+        hls.on(Hls.Events.ERROR, function (event, data) {
+            console.error("HLS.js Error:", data);
+        });
+        
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = videoSrc;
         video.addEventListener("loadedmetadata", function () {
