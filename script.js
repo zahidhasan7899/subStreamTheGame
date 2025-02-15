@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("live-stream");
-    var streamUrl = "https://dai.google.com/ssai/event/8cov9tHQRj26xm-Qz6uWzQ/master.m3u8";
+    var streamUrl = var streamUrl = "https://corsproxy.io/?" + encodeURIComponent("https://dai.google.com/ssai/event/8cov9tHQRj26xm-Qz6uWzQ/master.m3u8");
 
     if (Hls.isSupported()) {
         var hls = new Hls();
