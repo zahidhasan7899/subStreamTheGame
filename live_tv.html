@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live TV - TNT Sports 1 HD</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #121212; color: white; }
+        h1 { margin-top: 20px; }
+        #video-container { width: 100%; max-width: 800px; margin: auto; }
+        video { width: 100%; height: auto; background: black; }
+    </style>
+</head>
+<body>
+    <h1>Live TV - TNT Sports 1 HD</h1>
+    <div id="video-container">
+        <video id="liveStream" controls autoplay></video>
+    </div>
+
+    <script>
+        var video = document.getElementById('liveStream');
+        var videoSrc = "https://cdn.hoichoi24.com/TNTSports1HD/tracks-v1a1/mono.ts.m3u8";
+        
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', function() {
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
